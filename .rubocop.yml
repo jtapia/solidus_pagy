@@ -1,0 +1,26 @@
+require:
+  - solidus_dev_support/rubocop
+
+AllCops:
+  NewCops: disable
+
+Gemspec/OrderedDependencies:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/NamedSubject:
+  Enabled: false
+
+RSpec/ContextWording:
+  Enabled: false
+
+RSpec/LeadingSubject:
+  Enabled: false
+
+RSpec/MessageChain:
+  Enabled: false
