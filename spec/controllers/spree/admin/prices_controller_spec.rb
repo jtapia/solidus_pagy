@@ -5,7 +5,7 @@ require 'spec_helper'
 describe Spree::Admin::PricesController, type: :controller do
   stub_authorization!
 
-  let!(:product) { create(:product) }
+  let(:product) { create(:product) }
 
   context 'with pagination' do
     it 'can page through the product master prices' do

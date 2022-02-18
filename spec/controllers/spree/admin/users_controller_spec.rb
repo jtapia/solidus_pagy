@@ -70,4 +70,48 @@ describe Spree::Admin::UsersController, type: :controller do
       end
     end
   end
+
+  describe '#orders' do
+    stub_authorization! do |_user|
+      can :manage, Spree.user_class
+    end
+
+    let(:order) { create(:order) }
+
+    before { user.orders << order }
+
+    it 'assigns a list of the users orders' do
+      get :orders, params: { id: user.id }
+      expect(assigns[:orders].count).to eq(1)
+      expect(assigns[:orders].first).to eq(order)
+    end
+
+    it 'assigns a ransack search for Spree::Order' do
+      get :orders, params: { id: user.id }
+      expect(assigns[:search]).to be_a(Ransack::Search)
+      expect(assigns[:search].klass).to eq(Spree::Order)
+    end
+  end
+
+  describe '#items' do
+    stub_authorization! do |_user|
+      can :manage, Spree.user_class
+    end
+
+    let(:order) { create(:order) }
+
+    before { user.orders << order }
+
+    it 'assigns a list of the users orders' do
+      get :items, params: { id: user.id }
+      expect(assigns[:orders].count).to eq(1)
+      expect(assigns[:orders].first).to eq(order)
+    end
+
+    it 'assigns a ransack search for Spree::Order' do
+      get :items, params: { id: user.id }
+      expect(assigns[:search]).to be_a(Ransack::Search)
+      expect(assigns[:search].klass).to eq(Spree::Order)
+    end
+  end
 end

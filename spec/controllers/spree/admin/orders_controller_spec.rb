@@ -71,6 +71,30 @@ describe Spree::Admin::OrdersController, type: :controller do
           expect(assigns[:orders][0].email).to eq(Spree::Order.first.email)
         end
       end
+
+      context 'by created_at_gt' do
+        it 'does display item results' do
+          get :index,
+            params: {
+              q: {
+                created_at_gt: DateTime.now - 1.day
+              }
+            }
+          expect(assigns[:orders].size).to eq(2)
+        end
+      end
+
+      context 'by created_at_lt' do
+        it 'does display item results' do
+          get :index,
+            params: {
+              q: {
+                created_at_lt: DateTime.now
+              }
+            }
+          expect(assigns[:orders].size).to eq(2)
+        end
+      end
     end
   end
 end
