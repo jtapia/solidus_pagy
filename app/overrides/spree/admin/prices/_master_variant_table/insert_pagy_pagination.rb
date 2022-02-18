@@ -5,5 +5,7 @@ Deface::Override.new(
   original: '5280d1ae82211875dfa421b8a28a69011ffbb928',
   virtual_path: 'spree/admin/prices/_master_variant_table',
   replace: 'erb[loud]:contains("paginate master_prices")',
-  text: '<%== pagy_nav(@pagy_master_prices, pagy_id: "master_prices_pagination") if @pagy_master_prices.pages > 1 %>'
+  text: '<%== send(SolidusPagy.config.nav_helper.to_sym,
+                   @pagy_master_prices,
+                   pagy_id: "master_prices_pagination") if @pagy_master_prices.pages > 1 %>'
 )

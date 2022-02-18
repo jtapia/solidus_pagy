@@ -13,5 +13,7 @@ Deface::Override.new(
   original: 'd95e6d826172f503b6d6201eed50298dcf4fd4ec',
   virtual_path: 'spree/admin/promotion_codes/index',
   replace: 'erb[loud]:contains("paginate @promotion_codes")',
-  text: '<%== pagy_nav(@pagy, pagy_id: "promotion_codes_pagination") if @pagy.pages > 1 %>'
+  text: '<%== send(SolidusPagy.config.nav_helper.to_sym,
+                   @pagy,
+                   pagy_id: "promotion_codes_pagination") if @pagy.pages > 1 %>'
 )

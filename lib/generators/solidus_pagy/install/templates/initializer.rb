@@ -1,8 +1,19 @@
 # frozen_string_literal: true
 
-require 'pagy/extras/bootstrap'
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# | Option     | Helper               | Path                     |
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# | default    | pagy_nav             |                          |
+# | bootstrap  | pagy_bootstrap_nav   | pagy/extras/bootstrap    |
+# | bulma      | pagy_bulma_nav       | pagy/extras/bulma        |
+# | foundation | pagy_foundation_nav  | pagy/extras/foundation   |
+# | materialize| pagy_materialize_nav | pagy/extras/materialize  |
+# | semantic   | pagy_semantic_nav    | pagy/extras/semantic     |
+# | uikit      | pagy_uikit_nav       | pagy/extras/uikit        |
+#  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 SolidusPagy.configure do |config|
+  config.nav_helper = 'pagy_nav'
   config.page = 1
   config.items = 20
   config.outset = 0

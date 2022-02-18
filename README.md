@@ -7,16 +7,16 @@ Add `Pagy` pagination ability to use on the Solidus Admin content.
 
 ## Installation
 
-Add solidus_pagy to your Gemfile:
+Add `solidus_pagy` to your Gemfile:
 
 ```ruby
-gem 'solidus_pagy'
+  gem 'solidus_pagy'
 ```
 
 Bundle your dependencies and run the installation generator:
 
 ```shell
-bin/rails generate solidus_pagy:install
+  bin/rails generate solidus_pagy:install
 ```
 
 ## Solidus configuration
@@ -24,7 +24,20 @@ bin/rails generate solidus_pagy:install
 After the installation, inside the file `app/cofig/initializers/solidus_pagy` you will be able to setup the `Pagy` pagination options:
 
 ```ruby
+  #  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  # | Option     | Helper               | Path                     |
+  #  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  # | default    | pagy_nav             |                          |
+  # | bootstrap  | pagy_bootstrap_nav   | pagy/extras/bootstrap    |
+  # | bulma      | pagy_bulma_nav       | pagy/extras/bulma        |
+  # | foundation | pagy_foundation_nav  | pagy/extras/foundation   |
+  # | materialize| pagy_materialize_nav | pagy/extras/materialize  |
+  # | semantic   | pagy_semantic_nav    | pagy/extras/semantic     |
+  # | uikit      | pagy_uikit_nav       | pagy/extras/uikit        |
+  #  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
   SolidusPagy.configure do |config|
+    config.nav_helper = 'pagy_nav' # default
     config.page = 1 # default
     config.items = 20 # default
     config.outset = 0 # default
@@ -36,6 +49,30 @@ After the installation, inside the file `app/cofig/initializers/solidus_pagy` yo
   end
 ```
 
+If you want to use `bootstrap` you need to require the path:
+
+```ruby
+  require 'pagy/extras/bootstrap'
+
+  SolidusPagy.configure do |config|
+    config.nav_helper = 'pagy_bootstrap_nav' # default
+    ...
+  end
+```
+
+## Usage
+
+Include in your `application_controller.rb`:
+
+```ruby
+include Pagy::Backend
+```
+
+and in your `application_helper.rb`:
+
+```ruby
+include Pagy::Frontend
+```
 
 ## Development
 

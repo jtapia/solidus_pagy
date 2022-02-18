@@ -2,7 +2,8 @@
 
 module SolidusPagy
   class Configuration
-    attr_accessor :page,
+    attr_accessor :nav_helper,
+      :page,
       :items,
       :outset,
       :promotions_per_page,

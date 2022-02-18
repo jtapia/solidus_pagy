@@ -5,6 +5,7 @@ require 'spec_helper'
 describe SolidusPagy::Configuration do
   before do
     SolidusPagy.configure do |config|
+      config.nav_helper = 'pagy_nav'
       config.page = 1
       config.items = 20
       config.outset = 0
@@ -14,6 +15,10 @@ describe SolidusPagy::Configuration do
       config.admin_products_per_page = 10
       config.admin_variants_per_page = 20
     end
+  end
+
+  it 'read nav_helper value' do
+    expect(SolidusPagy.config.nav_helper).to be('pagy_nav')
   end
 
   it 'read page value' do
