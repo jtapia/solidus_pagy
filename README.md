@@ -3,14 +3,14 @@
 [![CircleCI](https://circleci.com/gh/jtapia/solidus_pagy.svg?style=shield)](https://circleci.com/gh/jtapia/solidus_pagy)
 [![codecov](https://codecov.io/gh/jtapia/solidus_pagy/branch/master/graph/badge.svg)](https://codecov.io/gh/jtapia/solidus_pagy)
 
-Add `Pagy` pagination ability to use on the Solidus Admin content.
+Add [Pagy](https://github.com/ddnexus/pagy) pagination ability to use on the Solidus Admin content.
 
 ## Installation
 
 Add `solidus_pagy` to your Gemfile:
 
 ```ruby
-gem 'solidus_pagy'
+gem 'solidus_pagy', github: 'jtapia/solidus_pagy'
 ```
 
 Bundle your dependencies and run the installation generator:
