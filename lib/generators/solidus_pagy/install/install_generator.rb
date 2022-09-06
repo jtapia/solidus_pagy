@@ -10,8 +10,8 @@ module SolidusPagy
       end
 
       def add_stylesheets
-        inject_into_file 'vendor/assets/stylesheets/spree/frontend/all.css', " *= require spree/frontend/solidus_pagy\n", before: %r{\*/}, verbose: true # rubocop:disable Layout/LineLength
-        inject_into_file 'vendor/assets/stylesheets/spree/backend/all.css', " *= require spree/backend/solidus_pagy\n", before: %r{\*/}, verbose: true # rubocop:disable Layout/LineLength
+        inject_into_file 'vendor/assets/stylesheets/spree/frontend/all.css', " *= require spree/frontend/solidus_pagy\n", before: %r{\*/}, verbose: true
+        inject_into_file 'vendor/assets/stylesheets/spree/backend/all.css', " *= require spree/backend/solidus_pagy\n", before: %r{\*/}, verbose: true
       end
     end
   end
